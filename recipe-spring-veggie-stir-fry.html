@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This quick spring stir-fry celebrates fresh seasonal vegetables with a simple ginger-soy sauce. Perfect for busy weeknights when you want something he">
+    <title>Spring Veggie Stir-Fry - Seasonal Eats</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .recipe-hero { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+        .recipe-page { background-color: white; padding: 30px; margin: 20px 0 40px 0; border-radius: 8px; border-top: 3px solid #6B9080; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .recipe-header { margin-bottom: 20px; }
+        .recipe-header h2 { color: #2D3748; font-size: 2rem; margin-bottom: 10px; }
+        .recipe-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 20px 0; padding: 20px; background-color: #F9F9F9; border-radius: 8px; }
+        .info-item { text-align: center; }
+        .info-item strong { display: block; color: #4A7C59; font-size: 0.85rem; margin-bottom: 5px; }
+        .info-item span { font-size: 1.1rem; color: #1F2937; font-weight: bold; }
+        .recipe-section { margin: 30px 0; }
+        .recipe-section h3 { color: #6B9080; font-size: 1.5rem; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #E5E7EB; }
+        .ingredients-list, .instructions-list { list-style: none; padding: 0; }
+        .ingredients-list li { padding: 10px 0; padding-left: 30px; border-bottom: 1px solid #F0F0F0; color: #4A5568; line-height: 1.6; position: relative; }
+        .ingredients-list li:before { content: "✓"; position: absolute; left: 0; color: #6B9080; font-weight: bold; font-size: 1.2rem; }
+        .instructions-list { counter-reset: step-counter; }
+        .instructions-list li { counter-increment: step-counter; padding: 15px 0; padding-left: 50px; position: relative; color: #4A5568; line-height: 1.8; border-bottom: 1px solid #F0F0F0; }
+        .instructions-list li:before { content: counter(step-counter); position: absolute; left: 0; top: 15px; width: 30px; height: 30px; background-color: #6B9080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-link { display: inline-block; color: #3D6B4E; text-decoration: none; font-weight: bold; margin-bottom: 20px; transition: color 0.2s; }
+        .back-link:hover, .back-link:focus { color: #4A5568; text-decoration: underline; }
+        .notes-section { background-color: #FFFBEB; padding: 20px; border-radius: 8px; border-left: 4px solid #D97706; margin-top: 30px; }
+        .notes-section h4 { color: #D97706; margin-bottom: 10px; font-size: 1.2rem; }
+        .notes-section p { color: #6B7280; line-height: 1.6; margin-bottom: 10px; }
+        @media (max-width: 767px) { .recipe-page { padding: 20px; } .recipe-header h2 { font-size: 1.6rem; } .recipe-hero { height: 220px; } .recipe-info { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container">
+            <h1>🍃 Seasonal Eats</h1>
+            <p class="tagline">Simple recipes for busy students, organized by season</p>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" class="container">
+        <article class="recipe-page">
+            <a href="index.html" class="back-link">← Back to All Recipes</a>
+            <div class="recipe-header">
+                <h2>Spring Veggie Stir-Fry</h2>
+                <div class="recipe-meta">
+                    <span class="season-tag spring">🌸 Spring</span>
+                    <span class="time-tag">⚡ Weeknight</span>
+                    <span class="difficulty">Easy</span>
+                </div>
+            </div>
+            <img src="images/veggiestirfry.jpg" alt="Colorful vegetable stir-fry with bell peppers, snap peas, and carrots in a wok" class="recipe-hero">
+            <div class="recipe-info">
+                <div class="info-item"><strong>PREP TIME</strong><span>10 mins</span></div>
+                <div class="info-item"><strong>COOK TIME</strong><span>10 mins</span></div>
+                <div class="info-item"><strong>TOTAL TIME</strong><span>20 mins</span></div>
+                <div class="info-item"><strong>SERVINGS</strong><span>2</span></div>
+                <div class="info-item"><strong>BUDGET</strong><span>$3</span></div>
+            </div>
+            <section class="recipe-section">
+                <h3>Description</h3>
+                <p>This quick spring stir-fry celebrates fresh seasonal vegetables with a simple ginger-soy sauce. Perfect for busy weeknights when you want something he</p>
+            </section>
+            <section class="recipe-section">
+                <h3>Ingredients</h3>
+                <ul class="ingredients-list"><li>2 cups mixed spring vegetables (snap peas, bell peppers, carrots, asparagus)</li><li>2 cloves garlic, minced</li><li>1 tablespoon fresh ginger, grated</li><li>2 tablespoons vegetable oil</li><li>3 tablespoons soy sauce</li><li>1 tablespoon rice vinegar</li><li>1 teaspoon sesame oil</li><li>2 cups cooked rice</li><li>Green onions for garnish</li><li>Sesame seeds (optional)</li></ul>
+            </section>
+            <section class="recipe-section">
+                <h3>Instructions</h3>
+                <ol class="instructions-list"><li>Prep all vegetables by washing and cutting into bite-sized pieces. This is key for quick cooking!</li><li>Heat oil in a large wok or skillet over high heat until it shimmers.</li><li>Add garlic and ginger, stir-fry for 30 seconds until fragrant.</li><li>Add harder vegetables first (carrots, peppers) and stir-fry for 2-3 minutes.</li><li>Add softer vegetables (snap peas, asparagus) and stir-fry for another 2 minutes.</li><li>Mix soy sauce, rice vinegar, and sesame oil. Pour over vegetables.</li><li>Toss everything together for 1 minute until well coated.</li><li>Serve immediately over rice, garnished with green onions and sesame seeds.</li></ol>
+            </section>
+            <div class="notes-section">
+                <h4>💡 Student Tips</h4>
+                <p><strong>Prep Tip:</strong> Cut all veggies before you start cooking - stir-fry moves fast!</p><p><strong>Protein Boost:</strong> Add scrambled eggs, tofu, or leftover chicken for extra protein.</p><p><strong>Budget Hack:</strong> Frozen stir-fry mix works great and is often cheaper than fresh.</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seasonal Eats. A student project by Hans So.</p>
+            <p class="image-credit">Recipe photo is property of its respective owner</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

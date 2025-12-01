@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Seasonal Eats</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .about-content {
+            background-color: white;
+            padding: 2.5rem;
+            margin: 2rem 0 4rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .about-content h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .about-content h3 {
+            color: #764ba2;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .about-content ul {
+            margin: 1rem 0 1.5rem 2rem;
+            color: #555;
+        }
+        
+        .about-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .highlight-box {
+            background-color: #f0f0ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 767px) {
+            .about-content {
+                padding: 1.5rem;
+            }
+            
+            .about-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .about-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>👨‍🍳 Seasonal Eats</h1>
+            <p class="tagline">Simple recipes for busy students, organized by season</p>
+            
+            <!-- Hamburger menu button for mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Navigation -->
+            <nav id="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="about-content">
+            <h2>About Seasonal Eats</h2>
+            
+            <p>
+                Welcome to Seasonal Eats! This website was created as a final project for a web development 
+                course (SI539), born out of a simple need: making cooking more approachable for busy students like me.
+            </p>
+            
+            <p>
+                As a college student, I often felt overwhelmed by meal planning. Between classes, assignments, 
+                and a limited budget, cooking healthy meals seemed like just another time-consuming task. That's 
+                when I realized what I needed was a simple system—recipes organized not just by what I like, 
+                but by what's in season and how much time I have available.
+            </p>
+            
+            <h3>How This Site Works</h3>
+            
+            <div class="highlight-box">
+                <p><strong>🗓️ Organized by Season</strong></p>
+                <p>
+                    Recipes are grouped into Spring, Summer, Fall, and Winter. This helps you cook with 
+                    ingredients that are fresh, affordable, and at their peak flavor during each time of year.
+                </p>
+            </div>
+            
+            <div class="highlight-box">
+                <p><strong>⏰ Filtered by Time Available</strong></p>
+                <p>
+                    Each recipe is tagged as either "Weeknight" (quick meals for busy Monday-Thursday) or 
+                    "Weekend" (more elaborate recipes when you have extra time to cook).
+                </p>
+            </div>
+            
+            <div class="highlight-box">
+                <p><strong>❤️ Save Your Favorites</strong></p>
+                <p>
+                    Click the heart icon on any recipe to save it to your favorites! Your favorites are 
+                    stored locally in your browser, so they'll be there next time you visit. Perfect for 
+                    keeping track of recipes you want to try or cook again.
+                </p>
+            </div>
+            
+            <h3>Why Seasonal Cooking?</h3>
+            
+            <p>Cooking with seasonal ingredients has several benefits:</p>
+            
+            <ul>
+                <li><strong>Better Flavor:</strong> Produce tastes best when it's in season</li>
+                <li><strong>Lower Cost:</strong> Seasonal produce is often cheaper</li>
+                <li><strong>More Sustainable:</strong> Eating seasonally reduces environmental impact</li>
+                <li><strong>Easier Planning:</strong> Having a focused list makes shopping simpler</li>
+            </ul>
+            
+            <h3>The Recipe Categories</h3>
+            
+            <p><strong>🌸 Spring:</strong> Fresh greens, asparagus, peas, herbs, and citrus</p>
+            <p><strong>☀️ Summer:</strong> Tomatoes, berries, zucchini, corn, and grilling favorites</p>
+            <p><strong>🍂 Fall:</strong> Squash, apples, root vegetables, and warming spices</p>
+            <p><strong>❄️ Winter:</strong> Hearty stews, comfort foods, and preserved ingredients</p>
+            
+            <h3>About the Project</h3>
+            
+            <p>
+                This website was built using HTML, CSS, and JavaScript as part of a 10-week web development 
+                course. The filtering system uses client-side JavaScript to show and hide recipes based on 
+                your selections where no backend is required! The design is fully responsive, so you can use it on 
+                your phone while cooking in the kitchen.
+            </p>
+            
+            <p>
+                <strong>Accessibility Features:</strong> This site is designed to be fully accessible to 
+                everyone. It includes keyboard navigation support, screen reader compatibility, proper 
+                color contrast ratios, semantic HTML, and skip links. You can navigate the entire site 
+                using only your keyboard (try pressing Tab!), and all interactive elements have clear 
+                focus indicators.
+            </p>
+            
+            <p>
+                <strong>Original Features:</strong> The favorites system uses localStorage to remember 
+                your saved recipes even after you close your browser. This demonstrates JavaScript's 
+                ability to create persistent data without a backend database.
+            </p>
+            
+            <p>
+                All recipe photos are sourced from Unsplash, a free stock photo platform. Future improvements 
+                might include user accounts, a shopping list feature, and nutritional information.
+            </p>
+            
+            <p>
+                I hope this site helps you cook more confidently and enjoy the process of making your own meals. 
+                Happy cooking!
+            </p>
+            
+            <p style="margin-top: 2rem;">
+                <em>— Hans So, Web Development Student</em>
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seasonal Eats. A student project by Hans So.</p>
+            <p class="image-credit">14/16 recipe photos from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

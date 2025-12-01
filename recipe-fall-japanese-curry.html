@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Japanese curry is like a warm hug in a bowl! Use curry roux blocks (found at Asian markets) for authentic taste. Comfort food at its finest!">
+    <title>Japanese Curry Rice - Seasonal Eats</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .recipe-hero { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+        .recipe-page { background-color: white; padding: 30px; margin: 20px 0 40px 0; border-radius: 8px; border-top: 3px solid #6B9080; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .recipe-header { margin-bottom: 20px; }
+        .recipe-header h2 { color: #2D3748; font-size: 2rem; margin-bottom: 10px; }
+        .recipe-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 20px 0; padding: 20px; background-color: #F9F9F9; border-radius: 8px; }
+        .info-item { text-align: center; }
+        .info-item strong { display: block; color: #4A7C59; font-size: 0.85rem; margin-bottom: 5px; }
+        .info-item span { font-size: 1.1rem; color: #1F2937; font-weight: bold; }
+        .recipe-section { margin: 30px 0; }
+        .recipe-section h3 { color: #6B9080; font-size: 1.5rem; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #E5E7EB; }
+        .ingredients-list, .instructions-list { list-style: none; padding: 0; }
+        .ingredients-list li { padding: 10px 0; padding-left: 30px; border-bottom: 1px solid #F0F0F0; color: #4A5568; line-height: 1.6; position: relative; }
+        .ingredients-list li:before { content: "✓"; position: absolute; left: 0; color: #6B9080; font-weight: bold; font-size: 1.2rem; }
+        .instructions-list { counter-reset: step-counter; }
+        .instructions-list li { counter-increment: step-counter; padding: 15px 0; padding-left: 50px; position: relative; color: #4A5568; line-height: 1.8; border-bottom: 1px solid #F0F0F0; }
+        .instructions-list li:before { content: counter(step-counter); position: absolute; left: 0; top: 15px; width: 30px; height: 30px; background-color: #6B9080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-link { display: inline-block; color: #3D6B4E; text-decoration: none; font-weight: bold; margin-bottom: 20px; transition: color 0.2s; }
+        .back-link:hover, .back-link:focus { color: #4A5568; text-decoration: underline; }
+        .notes-section { background-color: #FFFBEB; padding: 20px; border-radius: 8px; border-left: 4px solid #D97706; margin-top: 30px; }
+        .notes-section h4 { color: #D97706; margin-bottom: 10px; font-size: 1.2rem; }
+        .notes-section p { color: #6B7280; line-height: 1.6; margin-bottom: 10px; }
+        @media (max-width: 767px) { .recipe-page { padding: 20px; } .recipe-header h2 { font-size: 1.6rem; } .recipe-hero { height: 220px; } .recipe-info { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container">
+            <h1>🍃 Seasonal Eats</h1>
+            <p class="tagline">Simple recipes for busy students, organized by season</p>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" class="container">
+        <article class="recipe-page">
+            <a href="index.html" class="back-link">← Back to All Recipes</a>
+            <div class="recipe-header">
+                <h2>Japanese Curry Rice</h2>
+                <div class="recipe-meta">
+                    <span class="season-tag fall">🍂 Fall</span>
+                    <span class="time-tag">🍳 Weekend</span>
+                    <span class="difficulty">Easy</span>
+                </div>
+            </div>
+            <img src="images/JapaneseCurryRice.jpg" alt="Rich Japanese curry with chicken, potatoes, and carrots over rice" class="recipe-hero">
+            <div class="recipe-info">
+                <div class="info-item"><strong>PREP TIME</strong><span>20 mins</span></div>
+                <div class="info-item"><strong>COOK TIME</strong><span>40 mins</span></div>
+                <div class="info-item"><strong>TOTAL TIME</strong><span>60 mins</span></div>
+                <div class="info-item"><strong>SERVINGS</strong><span>4-6</span></div>
+                <div class="info-item"><strong>BUDGET</strong><span>$6</span></div>
+            </div>
+            <section class="recipe-section">
+                <h3>Description</h3>
+                <p>Japanese curry is like a warm hug in a bowl! Use curry roux blocks (found at Asian markets) for authentic taste. Comfort food at its finest!</p>
+            </section>
+            <section class="recipe-section">
+                <h3>Ingredients</h3>
+                <ul class="ingredients-list"><li>1 lb chicken thighs, cubed</li><li>2 potatoes, cubed</li><li>2 carrots, sliced</li><li>1 onion, sliced</li><li>3 cups water</li><li>1 package Japanese curry roux (Golden Curry, Vermont, or Java)</li><li>2 tablespoons vegetable oil</li><li>4 cups cooked rice</li><li>Fukujinzuke pickles (optional but traditional)</li></ul>
+            </section>
+            <section class="recipe-section">
+                <h3>Instructions</h3>
+                <ol class="instructions-list"><li>Heat oil in a large pot. Brown chicken pieces on all sides, about 5 minutes.</li><li>Add onions and cook until softened, about 3 minutes.</li><li>Add potatoes and carrots. Stir for 2 minutes.</li><li>Pour in water. Bring to a boil, then reduce to simmer.</li><li>Cover and cook for 20 minutes until vegetables are tender.</li><li>Turn off heat. Break curry roux into pieces and add to pot.</li><li>Stir until roux completely dissolves (this creates the thick, rich sauce).</li><li>Simmer on low for 10 more minutes, stirring occasionally.</li><li>Serve over rice. Add pickles on the side!</li></ol>
+            </section>
+            <div class="notes-section">
+                <h4>💡 Student Tips</h4>
+                <p><strong>Curry Roux Blocks:</strong> Find these at Asian markets or Amazon. S&B Golden Curry is most popular. Comes in mild, medium, hot.</p><p><strong>Make it Thicker:</strong> Want it thicker? Cook longer. Want it thinner? Add more water.</p><p><strong>Next-Level:</strong> Even better the next day! The flavors meld overnight.</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seasonal Eats. A student project by Hans So.</p>
+            <p class="image-credit">Recipe photo is property of its respective owner</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

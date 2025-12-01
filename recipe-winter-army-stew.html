@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Born after the Korean War, this fusion stew combines American ingredients (spam, hot dogs) with Korean flavors. Fun to make and share!">
+    <title>Korean Army Stew (Budae Jjigae) - Seasonal Eats</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .recipe-hero { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+        .recipe-page { background-color: white; padding: 30px; margin: 20px 0 40px 0; border-radius: 8px; border-top: 3px solid #6B9080; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .recipe-header { margin-bottom: 20px; }
+        .recipe-header h2 { color: #2D3748; font-size: 2rem; margin-bottom: 10px; }
+        .recipe-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 20px 0; padding: 20px; background-color: #F9F9F9; border-radius: 8px; }
+        .info-item { text-align: center; }
+        .info-item strong { display: block; color: #4A7C59; font-size: 0.85rem; margin-bottom: 5px; }
+        .info-item span { font-size: 1.1rem; color: #1F2937; font-weight: bold; }
+        .recipe-section { margin: 30px 0; }
+        .recipe-section h3 { color: #6B9080; font-size: 1.5rem; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #E5E7EB; }
+        .ingredients-list, .instructions-list { list-style: none; padding: 0; }
+        .ingredients-list li { padding: 10px 0; padding-left: 30px; border-bottom: 1px solid #F0F0F0; color: #4A5568; line-height: 1.6; position: relative; }
+        .ingredients-list li:before { content: "✓"; position: absolute; left: 0; color: #6B9080; font-weight: bold; font-size: 1.2rem; }
+        .instructions-list { counter-reset: step-counter; }
+        .instructions-list li { counter-increment: step-counter; padding: 15px 0; padding-left: 50px; position: relative; color: #4A5568; line-height: 1.8; border-bottom: 1px solid #F0F0F0; }
+        .instructions-list li:before { content: counter(step-counter); position: absolute; left: 0; top: 15px; width: 30px; height: 30px; background-color: #6B9080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-link { display: inline-block; color: #3D6B4E; text-decoration: none; font-weight: bold; margin-bottom: 20px; transition: color 0.2s; }
+        .back-link:hover, .back-link:focus { color: #4A5568; text-decoration: underline; }
+        .notes-section { background-color: #FFFBEB; padding: 20px; border-radius: 8px; border-left: 4px solid #D97706; margin-top: 30px; }
+        .notes-section h4 { color: #D97706; margin-bottom: 10px; font-size: 1.2rem; }
+        .notes-section p { color: #6B7280; line-height: 1.6; margin-bottom: 10px; }
+        @media (max-width: 767px) { .recipe-page { padding: 20px; } .recipe-header h2 { font-size: 1.6rem; } .recipe-hero { height: 220px; } .recipe-info { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container">
+            <h1>🍃 Seasonal Eats</h1>
+            <p class="tagline">Simple recipes for busy students, organized by season</p>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" class="container">
+        <article class="recipe-page">
+            <a href="index.html" class="back-link">← Back to All Recipes</a>
+            <div class="recipe-header">
+                <h2>Korean Army Stew (Budae Jjigae)</h2>
+                <div class="recipe-meta">
+                    <span class="season-tag winter">❄️ Winter</span>
+                    <span class="time-tag">🍳 Weekend</span>
+                    <span class="difficulty">Easy</span>
+                </div>
+            </div>
+            <img src="images/ArmyStew.jpg" alt="Spicy Korean hot pot with ramen, spam, sausage, and kimchi" class="recipe-hero">
+            <div class="recipe-info">
+                <div class="info-item"><strong>PREP TIME</strong><span>15 mins</span></div>
+                <div class="info-item"><strong>COOK TIME</strong><span>35 mins</span></div>
+                <div class="info-item"><strong>TOTAL TIME</strong><span>50 mins</span></div>
+                <div class="info-item"><strong>SERVINGS</strong><span>4</span></div>
+                <div class="info-item"><strong>BUDGET</strong><span>$8</span></div>
+            </div>
+            <section class="recipe-section">
+                <h3>Description</h3>
+                <p>Born after the Korean War, this fusion stew combines American ingredients (spam, hot dogs) with Korean flavors. Fun to make and share!</p>
+            </section>
+            <section class="recipe-section">
+                <h3>Ingredients</h3>
+                <ul class="ingredients-list"><li>1 can spam, sliced</li><li>4 hot dogs, sliced</li><li>8 oz tofu, cubed</li><li>2 cups kimchi, chopped</li><li>1 package instant ramen noodles</li><li>2 cups Napa cabbage, chopped</li><li>1 onion, sliced</li><li>4 cloves garlic, minced</li><li>4 cups chicken or anchovy broth</li><li>2 tablespoons gochugaru (Korean chili flakes)</li><li>1 tablespoon gochujang (Korean chili paste)</li><li>1 tablespoon soy sauce</li><li>2 green onions, chopped</li><li>American cheese slices (yes, really!)</li><li>Rice cakes (optional)</li></ul>
+            </section>
+            <section class="recipe-section">
+                <h3>Instructions</h3>
+                <ol class="instructions-list"><li>Arrange ingredients in a large pot or electric skillet in sections: spam, hot dogs, tofu, kimchi, cabbage, onion.</li><li>Mix broth with gochugaru, gochujang, soy sauce, and garlic. Pour over ingredients.</li><li>Bring to a boil, then reduce to simmer for 15 minutes.</li><li>Add ramen noodles (discard seasoning packet). Cook for 3-4 minutes.</li><li>Place cheese slices on top. Let melt slightly.</li><li>Garnish with green onions.</li><li>Serve family-style from the pot. Everyone gets a bowl of broth, noodles, and ingredients!</li></ol>
+            </section>
+            <div class="notes-section">
+                <h4>💡 Student Tips</h4>
+                <p><strong>Dorm Friendly:</strong> Make this in an electric skillet or hot plate - perfect for dorm cooking!</p><p><strong>Customize It:</strong> Add baked beans, mushrooms, or other random items. That's the spirit of army stew!</p><p><strong>Cheese is Authentic:</strong> American cheese slices are TRADITIONAL. They add creamy richness!</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seasonal Eats. A student project by Hans So.</p>
+            <p class="image-credit">Recipe photo is property of its respective owner</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

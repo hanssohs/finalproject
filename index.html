@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Easy seasonal recipes for busy college students - quick weeknight meals and weekend cooking projects organized by season">
+    <title>Seasonal Eats - Recipe Website for Students</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="container">
+            <h1>👨‍🍳 Seasonal Eats</h1>
+            <p class="tagline">Simple recipes for busy students, organized by season</p>
+            
+            <!-- Hamburger menu button for mobile -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Navigation -->
+            <nav id="nav-menu" aria-label="Main navigation">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="container">
+        <!-- Filter Section -->
+        <section class="filter-section" aria-label="Recipe filters">
+            <h2>Find Your Recipe</h2>
+            
+            <div class="filter-group">
+                <h3 id="season-filter-label">Season</h3>
+                <div class="filter-buttons" role="group" aria-labelledby="season-filter-label">
+                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All Seasons</button>
+                    <button class="filter-btn" data-filter="spring" aria-pressed="false">🌸 Spring</button>
+                    <button class="filter-btn" data-filter="summer" aria-pressed="false">☀️ Summer</button>
+                    <button class="filter-btn" data-filter="fall" aria-pressed="false">🍂 Fall</button>
+                    <button class="filter-btn" data-filter="winter" aria-pressed="false">❄️ Winter</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3 id="time-filter-label">Time Available</h3>
+                <div class="filter-buttons" role="group" aria-labelledby="time-filter-label">
+                    <button class="filter-btn time-active" data-time="all" aria-pressed="true">All Days</button>
+                    <button class="filter-btn" data-time="weeknight" aria-pressed="false">⚡ Weeknight (Quick)</button>
+                    <button class="filter-btn" data-time="weekend" aria-pressed="false">🍳 Weekend (Leisurely)</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-btn favorites-filter" id="show-favorites" aria-pressed="false">
+                    ❤️ Show My Favorites (<span id="favorites-count">0</span>)
+                </button>
+            </div>
+        </section>
+
+        <!-- Recipe Grid -->
+        <section class="recipes-section" aria-label="Recipe list">
+            <h2 id="results-count" aria-live="polite">Showing All Recipes</h2>
+            <div class="recipe-grid" id="recipe-grid">
+                
+                <!-- Spring Recipes -->
+                <article class="recipe-card" data-season="spring" data-time="weeknight" data-recipe-id="spring-veggie-stir-fry">
+                    <button class="favorite-btn" aria-label="Add Spring Veggie Stir-Fry to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/veggiestirfry.jpg" alt="Colorful vegetable stir-fry with bell peppers, snap peas, and carrots in a wok">
+                    <div class="recipe-content">
+                        <h3>Spring Veggie Stir-Fry</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag spring">🌸 Spring</span>
+                            <span class="time-tag">⚡ 20 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Quick veggie stir-fry with ginger-soy sauce. Fresh spring vegetables over rice. Budget: $3/serving.</p>
+                        <a href="recipe-spring-veggie-stir-fry.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="spring" data-time="weeknight" data-recipe-id="spring-pho">
+                    <button class="favorite-btn" aria-label="Add Quick Vietnamese Pho to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/pho.jpg" alt="Bowl of Vietnamese pho with noodles, herbs, and bean sprouts">
+                    <div class="recipe-content">
+                        <h3>Quick Vietnamese Pho</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag spring">🌸 Spring</span>
+                            <span class="time-tag">⚡ 30 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Shortcut pho with rice noodles and aromatic broth. Fresh herbs make it spring-perfect!</p>
+                        <a href="recipe-spring-pho.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="spring" data-time="weekend" data-recipe-id="spring-teriyaki-salmon">
+                    <button class="favorite-btn" aria-label="Add Teriyaki Salmon Bowl to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/teriyakisalmon.jpg" alt="Glazed teriyaki salmon over rice with steamed vegetables">
+                    <div class="recipe-content">
+                        <h3>Teriyaki Salmon Bowl</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag spring">🌸 Spring</span>
+                            <span class="time-tag">🍳 45 min</span>
+                            <span class="difficulty">Medium</span>
+                        </div>
+                        <p>Glazed salmon with homemade teriyaki sauce over rice and edamame. Restaurant quality!</p>
+                        <a href="recipe-spring-teriyaki-salmon.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="spring" data-time="weekend" data-recipe-id="spring-bibimbap">
+                    <button class="favorite-btn" aria-label="Add Korean Bibimbap to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/koreanbibimbap.jpg" alt="Korean bibimbap bowl with rice, vegetables, egg, and gochujang">
+                    <div class="recipe-content">
+                        <h3>Korean Bibimbap</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag spring">🌸 Spring</span>
+                            <span class="time-tag">🍳 50 min</span>
+                            <span class="difficulty">Medium</span>
+                        </div>
+                        <p>Rice bowl with seasoned veggies, protein, and fried egg. Perfect balance of flavors!</p>
+                        <a href="recipe-spring-bibimbap.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <!-- Summer Recipes -->
+                <article class="recipe-card" data-season="summer" data-time="weeknight" data-recipe-id="summer-thai-basil-chicken">
+                    <button class="favorite-btn" aria-label="Add Thai Basil Chicken to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/PadKrapow.jpg" alt="Thai basil chicken stir-fry with rice and fresh basil leaves">
+                    <div class="recipe-content">
+                        <h3>Thai Basil Chicken (Pad Krapow)</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag summer">☀️ Summer</span>
+                            <span class="time-tag">⚡ 20 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Spicy Thai stir-fry with ground chicken and holy basil. Takes 20 minutes!</p>
+                        <a href="recipe-summer-thai-basil-chicken.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="summer" data-time="weeknight" data-recipe-id="summer-shrimp-tacos">
+                    <button class="favorite-btn" aria-label="Add Shrimp Tacos to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/ShrimpTacos.jpg" alt="Grilled shrimp tacos with cabbage slaw and lime">
+                    <div class="recipe-content">
+                        <h3>Shrimp Tacos</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag summer">☀️ Summer</span>
+                            <span class="time-tag">⚡ 25 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Quick shrimp tacos with lime crema and fresh slaw. Light and delicious!</p>
+                        <a href="recipe-summer-shrimp-tacos.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="summer" data-time="weekend" data-recipe-id="summer-chicken-tikka">
+                    <button class="favorite-btn" aria-label="Add Chicken Tikka Masala to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/TikkaMasala.jpg" alt="Chicken tikka masala in creamy tomato sauce with rice">
+                    <div class="recipe-content">
+                        <h3>Chicken Tikka Masala</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag summer">☀️ Summer</span>
+                            <span class="time-tag">🍳 60 min</span>
+                            <span class="difficulty">Medium</span>
+                        </div>
+                        <p>Creamy Indian curry with marinated chicken. Worth the time! Serves 4-6.</p>
+                        <a href="recipe-summer-chicken-tikka.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="summer" data-time="weekend" data-recipe-id="summer-korean-bbq-bowl">
+                    <button class="favorite-btn" aria-label="Add Korean BBQ Beef Bowl to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/BeefBowl.jpg" alt="Korean BBQ beef bulgogi over rice with vegetables">
+                    <div class="recipe-content">
+                        <h3>Korean BBQ Beef Bowl</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag summer">☀️ Summer</span>
+                            <span class="time-tag">🍳 45 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Bulgogi-style beef with sweet-savory marinade. Perfect for summer grilling!</p>
+                        <a href="recipe-summer-korean-bbq-bowl.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <!-- Fall Recipes -->
+                <article class="recipe-card" data-season="fall" data-time="weeknight" data-recipe-id="fall-beef-broccoli">
+                    <button class="favorite-btn" aria-label="Add Beef and Broccoli to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/BeefandBroccoli.jpg" alt="Beef and broccoli stir-fry in brown sauce over rice">
+                    <div class="recipe-content">
+                        <h3>Beef and Broccoli</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag fall">🍂 Fall</span>
+                            <span class="time-tag">⚡ 25 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Classic Chinese takeout at home. Tender beef in savory sauce. Better than delivery!</p>
+                        <a href="recipe-fall-beef-broccoli.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="fall" data-time="weeknight" data-recipe-id="fall-miso-ramen">
+                    <button class="favorite-btn" aria-label="Add Miso Ramen to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/MisoRamen.jpg" alt="Miso ramen with soft-boiled egg, nori, and green onions">
+                    <div class="recipe-content">
+                        <h3>Miso Ramen</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag fall">🍂 Fall</span>
+                            <span class="time-tag">⚡ 30 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Rich miso broth with noodles, egg, and toppings. Comfort in a bowl!</p>
+                        <a href="recipe-fall-miso-ramen.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="fall" data-time="weekend" data-recipe-id="fall-pulled-pork">
+                    <button class="favorite-btn" aria-label="Add Slow Cooker Pulled Pork to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/Carnitas.jpg" alt="Slow cooker pulled pork with mexican spices">
+                    <div class="recipe-content">
+                        <h3>Slow Cooker Carnitas</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag fall">🍂 Fall</span>
+                            <span class="time-tag">🍳 4 hours</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Mexican pulled pork for tacos, burritos, bowls. Makes 8 servings. Freeze extras!</p>
+                        <a href="recipe-fall-pulled-pork.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="fall" data-time="weekend" data-recipe-id="fall-japanese-curry">
+                    <button class="favorite-btn" aria-label="Add Japanese Curry Rice to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/JapaneseCurryRice.jpg" alt="Japanese curry with chicken and vegetables over rice">
+                    <div class="recipe-content">
+                        <h3>Japanese Curry Rice</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag fall">🍂 Fall</span>
+                            <span class="time-tag">🍳 60 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Rich, comforting curry with chicken and potatoes. Use curry roux blocks for easy cooking!</p>
+                        <a href="recipe-fall-japanese-curry.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <!-- Winter Recipes -->
+                <article class="recipe-card" data-season="winter" data-time="weeknight" data-recipe-id="winter-chicken-fried-rice">
+                    <button class="favorite-btn" aria-label="Add Chicken Fried Rice to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/BeefandBroccoli.jpg" alt="Chicken fried rice with eggs, peas, and carrots">
+                    <div class="recipe-content">
+                        <h3>Chicken Fried Rice</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag winter">❄️ Winter</span>
+                            <span class="time-tag">⚡ 20 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Better than takeout! Use day-old rice for best results. One-pan wonder.</p>
+                        <a href="recipe-winter-chicken-fried-rice.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="winter" data-time="weeknight" data-recipe-id="winter-tom-yum">
+                    <button class="favorite-btn" aria-label="Add Tom Yum Soup to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/TomYumSoup.jpg" alt="Tom yum soup with shrimp, mushrooms, and herbs">
+                    <div class="recipe-content">
+                        <h3>Tom Yum Soup</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag winter">❄️ Winter</span>
+                            <span class="time-tag">⚡ 25 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Spicy Thai soup with shrimp and lemongrass. Hot, sour, and comforting!</p>
+                        <a href="recipe-winter-tom-yum.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="winter" data-time="weekend" data-recipe-id="winter-beef-pho">
+                    <button class="favorite-btn" aria-label="Add Beef Pho to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/pho.jpg" alt="Vietnamese beef pho with rice noodles and fresh herbs">
+                    <div class="recipe-content">
+                        <h3>Beef Pho (Phở Bò)</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag winter">❄️ Winter</span>
+                            <span class="time-tag">🍳 90 min</span>
+                            <span class="difficulty">Medium</span>
+                        </div>
+                        <p>Authentic Vietnamese pho with aromatic broth. Worth the effort! Makes 6 servings.</p>
+                        <a href="recipe-winter-beef-pho.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card" data-season="winter" data-time="weekend" data-recipe-id="winter-army-stew">
+                    <button class="favorite-btn" aria-label="Add Korean Army Stew to favorites">
+                        <span class="heart">♡</span>
+                    </button>
+                    <img src="images/ArmyStew.jpg" alt="Korean army stew with ramen, sausage, and vegetables">
+                    <div class="recipe-content">
+                        <h3>Korean Army Stew (Budae Jjigae)</h3>
+                        <div class="recipe-meta">
+                            <span class="season-tag winter">❄️ Winter</span>
+                            <span class="time-tag">🍳 50 min</span>
+                            <span class="difficulty">Easy</span>
+                        </div>
+                        <p>Spicy Korean hot pot with ramen, spam, and veggies. Perfect for sharing!</p>
+                        <a href="recipe-winter-army-stew.html" class="recipe-link">View Recipe →</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seasonal Eats. A student project by Hans So.</p>
+            <p class="image-credit">All recipe photos are property of their respective owners</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

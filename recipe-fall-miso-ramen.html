@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rich, comforting miso broth with chewy noodles. This shortcut version uses miso paste for instant flavor. Way better than instant ramen!">
+    <title>Miso Ramen - Seasonal Eats</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .recipe-hero { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; }
+        .recipe-page { background-color: white; padding: 30px; margin: 20px 0 40px 0; border-radius: 8px; border-top: 3px solid #6B9080; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .recipe-header { margin-bottom: 20px; }
+        .recipe-header h2 { color: #2D3748; font-size: 2rem; margin-bottom: 10px; }
+        .recipe-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin: 20px 0; padding: 20px; background-color: #F9F9F9; border-radius: 8px; }
+        .info-item { text-align: center; }
+        .info-item strong { display: block; color: #4A7C59; font-size: 0.85rem; margin-bottom: 5px; }
+        .info-item span { font-size: 1.1rem; color: #1F2937; font-weight: bold; }
+        .recipe-section { margin: 30px 0; }
+        .recipe-section h3 { color: #6B9080; font-size: 1.5rem; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #E5E7EB; }
+        .ingredients-list, .instructions-list { list-style: none; padding: 0; }
+        .ingredients-list li { padding: 10px 0; padding-left: 30px; border-bottom: 1px solid #F0F0F0; color: #4A5568; line-height: 1.6; position: relative; }
+        .ingredients-list li:before { content: "✓"; position: absolute; left: 0; color: #6B9080; font-weight: bold; font-size: 1.2rem; }
+        .instructions-list { counter-reset: step-counter; }
+        .instructions-list li { counter-increment: step-counter; padding: 15px 0; padding-left: 50px; position: relative; color: #4A5568; line-height: 1.8; border-bottom: 1px solid #F0F0F0; }
+        .instructions-list li:before { content: counter(step-counter); position: absolute; left: 0; top: 15px; width: 30px; height: 30px; background-color: #6B9080; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-link { display: inline-block; color: #3D6B4E; text-decoration: none; font-weight: bold; margin-bottom: 20px; transition: color 0.2s; }
+        .back-link:hover, .back-link:focus { color: #4A5568; text-decoration: underline; }
+        .notes-section { background-color: #FFFBEB; padding: 20px; border-radius: 8px; border-left: 4px solid #D97706; margin-top: 30px; }
+        .notes-section h4 { color: #D97706; margin-bottom: 10px; font-size: 1.2rem; }
+        .notes-section p { color: #6B7280; line-height: 1.6; margin-bottom: 10px; }
+        @media (max-width: 767px) { .recipe-page { padding: 20px; } .recipe-header h2 { font-size: 1.6rem; } .recipe-hero { height: 220px; } .recipe-info { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container">
+            <h1>🍃 Seasonal Eats</h1>
+            <p class="tagline">Simple recipes for busy students, organized by season</p>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="nav-menu" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" class="container">
+        <article class="recipe-page">
+            <a href="index.html" class="back-link">← Back to All Recipes</a>
+            <div class="recipe-header">
+                <h2>Miso Ramen</h2>
+                <div class="recipe-meta">
+                    <span class="season-tag fall">🍂 Fall</span>
+                    <span class="time-tag">⚡ Weeknight</span>
+                    <span class="difficulty">Easy</span>
+                </div>
+            </div>
+            <img src="images/MisoRamen.jpg" alt="Rich miso ramen with soft-boiled egg, nori, and green onions" class="recipe-hero">
+            <div class="recipe-info">
+                <div class="info-item"><strong>PREP TIME</strong><span>10 mins</span></div>
+                <div class="info-item"><strong>COOK TIME</strong><span>20 mins</span></div>
+                <div class="info-item"><strong>TOTAL TIME</strong><span>30 mins</span></div>
+                <div class="info-item"><strong>SERVINGS</strong><span>2</span></div>
+                <div class="info-item"><strong>BUDGET</strong><span>$5</span></div>
+            </div>
+            <section class="recipe-section">
+                <h3>Description</h3>
+                <p>Rich, comforting miso broth with chewy noodles. This shortcut version uses miso paste for instant flavor. Way better than instant ramen!</p>
+            </section>
+            <section class="recipe-section">
+                <h3>Ingredients</h3>
+                <ul class="ingredients-list"><li>4 cups chicken broth</li><li>3 tablespoons miso paste (white or red)</li><li>1 tablespoon soy sauce</li><li>1 teaspoon sesame oil</li><li>2 cloves garlic, minced</li><li>1-inch ginger, grated</li><li>8 oz fresh ramen noodles (or 2 packs instant)</li><li>2 soft-boiled eggs</li><li>1 cup baby spinach or bok choy</li><li>2 green onions, sliced</li><li>Nori sheets</li><li>Corn kernels (optional)</li><li>Sesame seeds</li></ul>
+            </section>
+            <section class="recipe-section">
+                <h3>Instructions</h3>
+                <ol class="instructions-list"><li>Soft-boil eggs: Boil water, add eggs, cook 6.5 minutes. Transfer to ice bath. Peel and halve.</li><li>Make broth: Heat chicken broth in a pot. Add garlic and ginger, simmer for 5 minutes.</li><li>Whisk in miso paste until fully dissolved. Add soy sauce and sesame oil.</li><li>Cook noodles according to package (usually 3-4 minutes). Drain.</li><li>Add spinach to hot broth - it will wilt quickly.</li><li>Assemble bowls: noodles, hot broth with spinach, soft-boiled egg halves, green onions.</li><li>Top with nori, corn, and sesame seeds.</li></ol>
+            </section>
+            <div class="notes-section">
+                <h4>💡 Student Tips</h4>
+                <p><strong>Miso Types:</strong> White miso = milder/sweeter. Red miso = stronger/saltier. Both work!</p><p><strong>Egg Timing:</strong> 6.5 minutes = perfect jammy yolk. Want it softer? Try 6 minutes.</p><p><strong>Make it Hearty:</strong> Add leftover chicken, pork, or tofu for protein boost.</p>
+            </div>
+        </article>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seasonal Eats. A student project by Hans So.</p>
+            <p class="image-credit">Recipe photo is property of its respective owners</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
