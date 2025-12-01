@@ -1,20 +1,48 @@
-/* 
-Seasonal Eats - Minimalistic Recipe Website
-Mobile-First CSS Design
-*/
+/* CSS Variables - reusable values stored in :root */
+:root {
+    /* Font stacks - multiple options for browser compatibility */
+    --font-heading: Georgia, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    
+    /* Color variables - change once, updates everywhere */
+    --color-primary: #4A7C59;
+    --color-primary-dark: #3D6B4E;
+    --color-accent: #6B9080;
+    --color-bg: #FAFAF9;
+    --color-card: #FFFFFF;
+    --color-text: #374151;
+    --color-text-light: #6B7280;
+    
+    /* Shadow variables - different depth levels */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    
+    /* Transition variables - consistent timing across site */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
 
-/* Reset and base styles */
+/* Reset browser default styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Smooth scrolling when clicking anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
-    color: #374151;
-    background-color: #FAFAF9;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .container {
@@ -23,49 +51,93 @@ body {
     padding: 0 20px;
 }
 
-/* Skip link for accessibility */
+/* Skip link - hidden until keyboard focus */
 .skip-link {
     position: absolute;
-    left: -10000px;
+    left: -10000px; /* Moves off screen */
     top: 0;
-    background-color: #4A7C59;
+    background-color: var(--color-primary);
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
-    z-index: 9999;
+    z-index: 9999; /* Appears above everything */
     border-radius: 0 0 4px 0;
+    transition: var(--transition-fast);
 }
 
+/* When skip link gets keyboard focus */
 .skip-link:focus {
-    left: 0;
+    left: 0; /* Brings back onto screen */
     top: 0;
+    box-shadow: var(--shadow-lg);
 }
 
-/* Header */
+/* Header with gradient background */
 header {
-    background-color: #2D3748;
+    background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
     color: white;
-    padding: 20px 5%;
+    padding: 30px 5%;
     text-align: center;
     position: relative;
+    overflow: hidden; /* Hides animated shimmer when off-screen */
+}
+
+/* Shimmer effect - animated light sweep */
+header::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Positioned relative to header */
+    top: 0;
+    left: -100%; /* Starts off-screen left */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s infinite; /* Runs continuously */
+}
+
+/* Shimmer animation moves light left to right */
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
     margin-bottom: 8px;
-    font-weight: bold;
+    font-weight: 900;
+    letter-spacing: -0.5px; /* Tightens letter spacing */
+    animation: fadeInDown 0.6s ease; /* Animates on page load */
+}
+
+/* Fade in from top animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Starts 20px above */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Ends at normal position */
+    }
 }
 
 .tagline {
     font-size: 1rem;
     opacity: 0.9;
     margin-bottom: 15px;
+    animation: fadeIn 0.8s ease 0.2s both; /* Delays 0.2s */
 }
 
-/* Navigation - Grid for mobile */
+/* Simple fade in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Navigation */
 nav {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 nav a {
@@ -75,33 +147,60 @@ nav a {
     padding: 12px;
     margin: 5px 0;
     background-color: #4A5568;
-    border-radius: 4px;
+    border-radius: 8px;
     text-align: center;
-    transition: background-color 0.3s;
+    transition: all var(--transition-medium);
+    position: relative; /* Creates positioning context for ::before */
+    overflow: hidden; /* Hides expanding circle when outside button */
+    font-weight: 500;
+}
+
+/* Ripple effect on hover - expanding circle */
+nav a::before {
+    content: '';
+    position: absolute; /* Positioned relative to nav a */
+    top: 50%;
+    left: 50%;
+    width: 0; /* Starts invisible */
+    height: 0;
+    border-radius: 50%; /* Makes it circular */
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%); /* Centers the circle */
+    transition: width 0.6s, height 0.6s;
+}
+
+/* On hover/focus, circle expands */
+nav a:hover::before,
+nav a:focus::before {
+    width: 300px;
+    height: 300px;
 }
 
 nav a:hover,
 nav a:focus {
-    background-color: #4A7C59;
-    outline: 2px solid #A7C4BC;
+    background-color: var(--color-primary);
+    transform: translateY(-2px); /* Lifts button up */
+    box-shadow: var(--shadow-md);
 }
 
 nav a[aria-current="page"] {
-    background-color: #4A7C59;
-    font-weight: bold;
+    background-color: var(--color-primary);
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
 }
 
-/* Hamburger menu */
+/* Hamburger menu icon */
 .hamburger {
-    display: none;
+    display: none; /* Hidden on desktop */
     flex-direction: column;
     background: none;
     border: none;
     cursor: pointer;
     padding: 8px;
-    position: absolute;
+    position: absolute; /* Positioned in header */
     top: 20px;
     right: 20px;
+    z-index: 100;
 }
 
 .hamburger span {
@@ -109,41 +208,65 @@ nav a[aria-current="page"] {
     height: 3px;
     background-color: white;
     margin: 3px 0;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
+/* Color change on hover */
+.hamburger:hover span {
+    background-color: var(--color-accent);
+}
+
+/* When menu is open, rotate spans into X */
 .hamburger.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+    opacity: 0; /* Middle bar disappears */
 }
 
 .hamburger.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-/* Main content */
+/* Main content area */
 main {
-    padding: 30px 5%;
+    padding: 40px 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Filter section */
+/* Filter section with frosted glass effect */
 .filter-section {
-    background-color: white;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blurs content behind */
+    padding: 30px;
     margin: 20px 0;
-    border-radius: 8px;
-    border-top: 3px solid #6B9080;
+    border-radius: 16px;
+    border-top: 3px solid var(--color-primary);
+    box-shadow: var(--shadow-md);
+    animation: slideUp 0.5s ease; /* Slides up on load */
+}
+
+/* Slide up from bottom animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Starts below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Ends at position */
+    }
 }
 
 .filter-section h2 {
+    font-family: var(--font-heading);
     color: #2D3748;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 20px;
+    font-weight: 700;
 }
 
 .filter-group {
@@ -154,60 +277,96 @@ main {
     font-size: 1rem;
     margin-bottom: 10px;
     color: #4A5568;
-    font-weight: bold;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase; /* Makes text all caps */
 }
 
+/* Grid layout for filter buttons */
 .filter-buttons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 12px;
 }
 
+/* Filter buttons with gradient fill effect */
 .filter-btn {
-    padding: 10px 15px;
+    padding: 12px 15px;
     border: 2px solid #D1D5DB;
     background-color: white;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 0.95rem;
-    transition: all 0.2s;
+    font-weight: 500;
+    transition: all var(--transition-fast);
     text-align: center;
+    position: relative; /* Creates context for ::after */
+    overflow: hidden; /* Hides gradient when below button */
+}
+
+/* Gradient fill on hover - rises from bottom */
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Starts invisible */
+    background: linear-gradient(to top, var(--color-primary), transparent);
+    transition: height var(--transition-medium);
+    z-index: -1; /* Behind button text */
+}
+
+/* On hover, gradient fills upward */
+.filter-btn:hover::after,
+.filter-btn:focus::after {
+    height: 100%;
 }
 
 .filter-btn:hover,
 .filter-btn:focus {
-    border-color: #4A7C59;
-    background-color: #F7F7F7;
+    border-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px); /* Lifts button */
+    box-shadow: var(--shadow-md);
 }
 
+/* Active state - button pressed */
 .filter-btn.active {
-    background-color: #4A7C59;
+    background-color: var(--color-primary);
     color: white;
-    border-color: #4A7C59;
+    border-color: var(--color-primary);
+    transform: scale(1.05); /* Slightly enlarges */
+    box-shadow: var(--shadow-md);
 }
 
 .filter-btn.time-active {
     background-color: #4A5568;
     color: white;
     border-color: #4A5568;
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
 }
 
+/* Favorites button spans both columns */
 .favorites-filter {
-    grid-column: 1 / -1;
-    background-color: #FDF2F8;
+    grid-column: 1 / -1; /* From column 1 to end */
+    background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
     border-color: #F9A8D4;
     color: #BE185D;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .favorites-filter:hover,
 .favorites-filter:focus {
-    background-color: #FCE7F3;
+    background: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);
     border-color: #F472B6;
+    transform: scale(1.02);
 }
 
+/* When favorites filter is active */
 .favorites-filter[aria-pressed="true"] {
-    background-color: #BE185D;
+    background: linear-gradient(135deg, #BE185D 0%, #9D174D 100%);
     color: white;
     border-color: #BE185D;
 }
@@ -218,79 +377,126 @@ main {
 }
 
 .recipes-section h2 {
+    font-family: var(--font-heading);
     color: #2D3748;
     margin-bottom: 20px;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     padding-bottom: 10px;
     border-bottom: 2px solid #E5E7EB;
+    font-weight: 700;
 }
 
-/* Recipe grid - single column on mobile */
+/* Recipe cards grid */
 .recipe-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 25px;
 }
 
+/* Recipe card with multiple effects on hover */
 .recipe-card {
     background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
+    border-radius: 12px;
+    overflow: hidden; /* Clips image zoom effect */
     border: 1px solid #E5E7EB;
-    transition: border-color 0.2s;
-    position: relative;
+    transition: all var(--transition-medium);
+    position: relative; /* For favorite button positioning */
+    animation: fadeInUp 0.6s ease both; /* Appears on load */
 }
 
+/* Fade in and slide up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animations - each card delays slightly */
+.recipe-card:nth-child(1) { animation-delay: 0.1s; }
+.recipe-card:nth-child(2) { animation-delay: 0.15s; }
+.recipe-card:nth-child(3) { animation-delay: 0.2s; }
+.recipe-card:nth-child(4) { animation-delay: 0.25s; }
+.recipe-card:nth-child(5) { animation-delay: 0.3s; }
+.recipe-card:nth-child(6) { animation-delay: 0.35s; }
+
+/* Card hover effect - lifts and enlarges */
 .recipe-card:hover {
-    border-color: #4A7C59;
+    border-color: var(--color-primary);
+    transform: translateY(-8px) scale(1.02); /* Moves up + grows */
+    box-shadow: var(--shadow-xl);
 }
 
+/* Hide filtered cards */
 .recipe-card.hidden {
     display: none;
 }
 
-/* Favorite button */
+/* Favorite heart button with glass effect */
 .favorite-btn {
-    position: absolute;
+    position: absolute; /* Positioned in card */
     top: 10px;
     right: 10px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     border: 2px solid #F9A8D4;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    border-radius: 50%; /* Makes it circular */
+    width: 44px;
+    height: 44px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 10; /* Above image */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
+    transition: all var(--transition-medium);
 }
 
 .favorite-btn:hover,
 .favorite-btn:focus {
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(10deg); /* Grows + tilts */
     background-color: #FDF2F8;
-    outline: 2px solid #4A7C59;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.3);
+}
+
+/* When recipe is favorited, heart beats */
+.favorite-btn.favorited {
+    animation: heartBeat 0.3s ease;
+}
+
+/* Heart beat animation */
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(1.1); }
+    75% { transform: scale(1.25); }
 }
 
 .favorite-btn .heart {
-    font-size: 20px;
+    font-size: 22px;
     color: #BE185D;
+    transition: transform var(--transition-fast);
 }
 
-.favorite-btn.favorited .heart {
-    content: '♥';
+.favorite-btn:hover .heart {
+    transform: scale(1.2);
 }
 
-.favorite-btn.favorited .heart::before {
-    content: '♥';
-}
-
+/* Recipe images with zoom effect */
 .recipe-card img {
     width: 100%;
     height: 220px;
-    object-fit: cover;
+    object-fit: cover; /* Crops to fit */
+    transition: all var(--transition-slow);
+}
+
+/* On card hover, image zooms in */
+.recipe-card:hover img {
+    transform: scale(1.1); /* Enlarges 110% */
+    filter: brightness(1.1); /* Slightly brighter */
 }
 
 .recipe-content {
@@ -298,14 +504,23 @@ main {
 }
 
 .recipe-content h3 {
-    font-size: 1.3rem;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
     margin-bottom: 10px;
     color: #2D3748;
+    font-weight: 700;
+    transition: color var(--transition-fast);
 }
 
+/* Title changes color on card hover */
+.recipe-card:hover .recipe-content h3 {
+    color: var(--color-primary);
+}
+
+/* Recipe metadata tags container */
 .recipe-meta {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Wraps to new line if needed */
     gap: 8px;
     margin-bottom: 12px;
 }
@@ -313,31 +528,42 @@ main {
 .season-tag,
 .time-tag,
 .difficulty {
-    padding: 4px 10px;
-    border-radius: 4px;
+    padding: 6px 12px;
+    border-radius: 20px; /* Pill shape */
     font-size: 0.85rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
 }
 
+/* Tags lift slightly on hover */
+.season-tag:hover,
+.time-tag:hover,
+.difficulty:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Season tag colors with gradients */
 .season-tag.spring {
-    background-color: #FDF2F8;
+    background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
     color: #BE185D;
     border: 1px solid #F9A8D4;
 }
 
 .season-tag.summer {
-    background-color: #FFFBEB;
+    background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
     color: #B45309;
     border: 1px solid #FCD34D;
 }
 
 .season-tag.fall {
-    background-color: #FFF7ED;
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
     color: #C2410C;
     border: 1px solid #FDBA74;
 }
 
 .season-tag.winter {
-    background-color: #EFF6FF;
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
     color: #1E40AF;
     border: 1px solid #93C5FD;
 }
@@ -360,36 +586,74 @@ main {
     line-height: 1.6;
 }
 
+/* Recipe link with arrow that slides */
 .recipe-link {
-    display: inline-block;
-    color: #3D6B4E;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-primary-dark);
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
+    font-weight: 700;
+    transition: all var(--transition-fast);
+    position: relative;
 }
 
+/* Arrow appears after link text */
+.recipe-link::after {
+    content: '→';
+    transition: transform var(--transition-fast);
+}
+
+/* On hover, gap widens and arrow slides right */
 .recipe-link:hover,
 .recipe-link:focus {
-    color: #4A5568;
-    text-decoration: underline;
+    color: var(--color-primary);
+    gap: 12px; /* Widens gap */
 }
 
-/* Footer */
+.recipe-link:hover::after {
+    transform: translateX(5px); /* Arrow slides right */
+}
+
+/* Footer with gradient and animated line */
 footer {
-    background-color: #2D3748;
+    background: linear-gradient(135deg, #2D3748 0%, #1F2937 100%);
     color: white;
-    padding: 25px 5%;
+    padding: 30px 5%;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden; /* Hides gradient line overflow */
+}
+
+/* Animated gradient line at top */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+    background-size: 200% 100%; /* Makes gradient twice as wide */
+    animation: gradient 3s ease infinite;
+}
+
+/* Gradient slides left to right */
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 footer p {
     margin: 8px 0;
+    opacity: 0.9;
 }
 
 footer a {
-    color: #A7C4BC;
+    color: var(--color-accent);
     text-decoration: underline;
+    transition: color var(--transition-fast);
 }
 
 footer a:hover,
@@ -402,18 +666,40 @@ footer a:focus {
     opacity: 0.85;
 }
 
-/* Accessibility: focus outline */
+/* Enhanced focus outlines for accessibility */
 *:focus {
-    outline: 2px solid #4A7C59;
+    outline: 3px solid var(--color-primary);
     outline-offset: 2px;
 }
 
-/* Accessibility: reduced motion */
+button:focus,
+a:focus {
+    outline-offset: 4px; /* Extra spacing for buttons/links */
+}
+
+/* Image fade in animation on load */
+@keyframes imageLoad {
+    from {
+        opacity: 0;
+        filter: blur(10px); /* Starts blurry */
+    }
+    to {
+        opacity: 1;
+        filter: blur(0); /* Becomes sharp */
+    }
+}
+
+img {
+    animation: imageLoad 0.5s ease;
+}
+
+/* Disable animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important; /* Nearly instant */
+        animation-iteration-count: 1 !important; /* Only once */
         transition-duration: 0.01ms !important;
     }
 }
@@ -423,51 +709,55 @@ footer a:focus {
    =============================================== */
 @media screen and (min-width: 768px) {
     header {
-        padding: 30px 5%;
+        padding: 40px 5%;
     }
 
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
 
     .tagline {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     nav {
         margin-top: 20px;
     }
 
+    /* Navigation becomes horizontal on tablet */
     nav a {
-        display: inline-block;
-        margin: 0 5px;
-        padding: 12px 20px;
+        display: inline-block; /* Side by side */
+        margin: 0 8px;
+        padding: 12px 24px;
+        border-radius: 25px; /* More rounded */
     }
 
     main {
-        padding: 40px 5%;
+        padding: 50px 5%;
     }
 
     .filter-section {
-        padding: 30px;
+        padding: 35px;
     }
 
     .filter-section h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
+    /* Buttons auto-size based on content */
     .filter-buttons {
         grid-template-columns: repeat(auto-fit, minmax(150px, auto));
-        gap: 12px;
+        gap: 15px;
     }
 
     .recipes-section h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
+    /* Two-column grid on tablet */
     .recipe-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+        gap: 30px;
     }
 
     .recipe-card img {
@@ -475,19 +765,20 @@ footer a:focus {
     }
 
     footer {
-        padding: 30px 5%;
+        padding: 40px 5%;
     }
 }
 
 /* Desktop (1024px and up) */
 @media screen and (min-width: 1024px) {
     header h1 {
-        font-size: 2.5rem;
+        font-size: 3.2rem;
     }
 
+    /* Three-column grid on desktop */
     .recipe-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+        gap: 35px;
     }
 
     .recipe-card img {
@@ -495,29 +786,50 @@ footer a:focus {
     }
 
     .filter-buttons {
-        gap: 15px;
+        gap: 18px;
+    }
+
+    /* More dramatic hover effect on desktop */
+    .recipe-card:hover {
+        transform: translateY(-12px) scale(1.03);
     }
 }
 
 /* Mobile menu (below 768px) */
 @media (max-width: 767px) {
     .hamburger {
-        display: flex;
+        display: flex; /* Show hamburger on mobile */
     }
 
+    /* Navigation menu hidden by default */
     nav {
         position: absolute;
-        top: 100%;
+        top: 100%; /* Below header */
         left: 0;
         right: 0;
-        background-color: #2D3748;
+        background: linear-gradient(135deg, #2D3748 0%, #1F2937 100%);
         padding: 15px 20px;
-        display: none;
+        display: none; /* Hidden initially */
         flex-direction: column;
+        box-shadow: var(--shadow-lg);
     }
 
+    /* When menu is open */
     nav.active {
         display: flex;
+        animation: slideDown 0.3s ease;
+    }
+
+    /* Menu slides down from top */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     nav a {
@@ -526,13 +838,16 @@ footer a:focus {
     }
 }
 
-/* Additional contrast fixes for recipe pages */
+/* Recipe page back link styling */
 .back-link {
-    color: #3D6B4E !important;
-    font-weight: bold;
+    color: var(--color-primary-dark) !important;
+    font-weight: 700;
+    transition: all var(--transition-fast);
 }
 
+/* Back link slides left on hover */
 .back-link:hover,
 .back-link:focus {
-    color: #2D5A3F !important;
+    color: var(--color-primary) !important;
+    transform: translateX(-5px); /* Moves left */
 }
