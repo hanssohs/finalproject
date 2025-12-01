@@ -793,6 +793,7 @@ img {
         display: none; /* Hidden initially */
         flex-direction: column;
         box-shadow: var(--shadow-lg);
+        z-index: 1000; /* Above everything including filter section */
     }
 
     /* When menu is open */
