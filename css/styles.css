@@ -80,25 +80,6 @@ header {
     padding: 30px 5%;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Hides animated shimmer when off-screen */
-}
-
-/* Shimmer effect - animated light sweep */
-header::before {
-    content: ''; /* Required for pseudo-elements */
-    position: absolute; /* Positioned relative to header */
-    top: 0;
-    left: -100%; /* Starts off-screen left */
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    animation: shimmer 3s infinite; /* Runs continuously */
-}
-
-/* Shimmer animation moves light left to right */
-@keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
 }
 
 header h1 {
