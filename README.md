@@ -9,6 +9,8 @@ Accessible recipe website for college students with 16 budget-friendly recipes o
 - WCAG 2.1 AA compliant
 - Mobile-responsive, keyboard accessible
 
-**Live:** https://hanssohs.github.io/finalproject/
+**Live:** 
+https://hanssohs.github.io/finalproject/index.html
+https://hanssohs.github.io/finalproject/
 
 SI 539 Final Project
